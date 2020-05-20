@@ -28,6 +28,7 @@ library
                      , http-client-tls
                      , http-types
                      , hnix-store-core
+                     , hnix-store-remote
                      , nix-narinfo
 
   default-language:    Haskell2010
@@ -45,6 +46,19 @@ executable hnix-store-in-cache
                      , hnix-store-core
   default-language:    Haskell2010
 
+
+executable hnix-store-build-drv
+  hs-source-dirs:      app
+  main-is:             BuildDerivation.hs
+  ghc-options:         -threaded -rtsopts -with-rtsopts=-N
+  build-depends:       base
+                     , hnix-store-experiments
+                     , attoparsec
+                     , bytestring
+                     , text
+                     , hnix-store-core
+                     , hnix-store-remote
+  default-language:    Haskell2010
 
 --test-suite hnix-store-experiments-tests
 --  type:                exitcode-stdio-1.0

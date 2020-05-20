@@ -1,1 +1,2 @@
-packages: . ../hnix-store/hnix-store-core/
+packages: .
+
