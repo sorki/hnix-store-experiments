@@ -16,7 +16,7 @@ import           System.Nix.Store.Remote
 parseDerivation source = do
   contents <- Data.Text.IO.readFile source
   case Data.Attoparsec.Text.Lazy.parseOnly
-    (System.Nix.Derivation.parseDerivationText "/nix/store") contents of
+    (System.Nix.Derivation.parseDerivation "/nix/store") contents of
       Left e -> error e
       Right drv -> return drv
 
