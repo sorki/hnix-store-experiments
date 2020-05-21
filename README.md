@@ -18,3 +18,11 @@ nix-shell --command 'exit'
 nix-store -qR --include-outputs $(nix-instantiate shell.nix) \
   | hnix-store-in-cache | cachix push ivory-tower-nix
 ```
+
+### `hnix-store-build-drv`
+
+Try to realise (build) derivation.
+
+```bash
+hnix-store-build-drv FILE.drv
+```
