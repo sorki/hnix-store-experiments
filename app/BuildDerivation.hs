@@ -4,7 +4,7 @@ module Main where
 
 import qualified Data.Text.IO
 import qualified Data.ByteString.Char8
-import qualified Data.Attoparsec.Text.Lazy
+import qualified Data.Attoparsec.Text
 
 import qualified System.Environment
 
@@ -15,7 +15,7 @@ import           System.Nix.Store.Remote
 
 parseDerivation source = do
   contents <- Data.Text.IO.readFile source
-  case Data.Attoparsec.Text.Lazy.parseOnly
+  case Data.Attoparsec.Text.parseOnly
     (System.Nix.Derivation.parseDerivation "/nix/store") contents of
       Left e -> error e
       Right drv -> return drv
